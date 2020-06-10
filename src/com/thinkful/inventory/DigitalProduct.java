@@ -1,6 +1,9 @@
 package com.thinkful.inventory;
 
 public class DigitalProduct extends Product{
+
+    public static final double DIGITAL_DISCOUNT = 0.9;
+
     private double fileSize;
     private String downloadLink;
 
@@ -18,6 +21,10 @@ public class DigitalProduct extends Product{
         this.setDownloadLink(downloadLink);
     }
 
+    @Override
+    public double getFinalPrice() {
+        return getBasePrice() * DIGITAL_DISCOUNT;
+    }
 
     public double getFileSize() {
         return fileSize;

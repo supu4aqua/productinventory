@@ -1,18 +1,17 @@
 package com.thinkful.inventory;
 
 public class PhysicalProduct extends Product{
+    public static final double SHIPPING_COST = 5;
     private double weight;
     private double width;
     private double height;
 
     public PhysicalProduct() {
         this("No name", "No description", 0);
-        System.out.println("No-arg constructor of PhysicalProduct");
     }
 
     public PhysicalProduct(String title, String description, double basePrice) {
         this(title, description, basePrice, 1.0, 1.0, 1.0);
-        System.out.println("3-arg constructor of PhysicalProduct");
     }
 
     public PhysicalProduct(String title, String description, double basePrice, double weight, double width, double height) {
@@ -20,9 +19,12 @@ public class PhysicalProduct extends Product{
         this.setWeight(weight);
         this.setWidth(width);
         this.setHeight(height);
-        System.out.println("6-arg constructor of PhysicalProduct");
     }
 
+    @Override
+    public double getFinalPrice() {
+        return getBasePrice() + SHIPPING_COST;
+    }
 
     public double getWeight() {
         return weight;
