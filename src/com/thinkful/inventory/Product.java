@@ -7,14 +7,12 @@ public class Product {
 
     public Product() {
         this("Not set", "None given", 0);
-        System.out.println("No-arg constructor of Product");
     }
 
     public Product(String title, String description, double basePrice) {
         this.setTitle(title);
         this.setDescription(description);
         this.setBasePrice(basePrice);
-        System.out.println("3-arg constructor of Product");
     }
 
     @Override
