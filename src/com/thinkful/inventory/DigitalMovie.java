@@ -1,8 +1,9 @@
 package com.thinkful.inventory;
 
-public class DigitalMovie extends DigitalMedia {
+public class DigitalMovie extends DigitalMedia implements LoanItem{
     private String director;
     private String starring;
+    private int loanLength;
 
     public DigitalMovie() {
         this("No name", "No description", 0);
@@ -31,6 +32,7 @@ public class DigitalMovie extends DigitalMedia {
         super(title, description, basePrice, fileSize, downloadLink, genre, year, playBackLength);
         this.setDirector(director);
         this.setStarring(starring);
+        this.setLoanLength(1);
     }
 
     public String getDirector() {
@@ -47,5 +49,15 @@ public class DigitalMovie extends DigitalMedia {
 
     public void setStarring(String starring) {
         this.starring = starring;
+    }
+
+    @Override
+    public int getLoanLength() {
+        return loanLength;
+    }
+
+    @Override
+    public void setLoanLength(int loanLength) {
+        this.loanLength = loanLength;
     }
 }

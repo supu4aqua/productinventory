@@ -2,11 +2,12 @@ package com.thinkful.inventory;
 
 import java.util.Date;
 
-public class DigitalBook extends DigitalProduct{
+public class DigitalBook extends DigitalProduct implements LoanItem{
     private int numberPages;
     private String author;
     private String publisher;
     private Date publishDate;
+    private int loanLength;
 
     public DigitalBook() {
         this("No name", "No description", 0);
@@ -31,6 +32,7 @@ public class DigitalBook extends DigitalProduct{
         this.setAuthor(author);
         this.setPublisher(publisher);
         this.setPublishDate(publishDate);
+        this.setLoanLength(1);
     }
 
     public int getNumberPages() {
@@ -63,6 +65,16 @@ public class DigitalBook extends DigitalProduct{
 
     public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
+    }
+
+    @Override
+    public int getLoanLength() {
+        return loanLength;
+    }
+
+    @Override
+    public void setLoanLength(int loanLength) {
+        this.loanLength = loanLength;
     }
 }
 
